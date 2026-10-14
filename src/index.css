@@ -100,3 +100,4 @@ body{background:#fffdf9;color:var(--ink);}
 @media(max-width:640px){.brand-monogram{width:54px;height:36px;box-shadow:3px 3px 0 var(--gold);}}
 
 @media(max-width:900px){.nav-rsvp{display:none;}.hero-section{grid-template-columns:1fr;}.hero-portrait{display:block;order:2;width:100%;max-width:none;margin-top:12px;}.hero-artwork{display:block;width:100%;height:auto;}}
+@media(max-width:640px){.hero-portrait{display:none;}}
