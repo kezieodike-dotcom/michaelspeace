@@ -1,0 +1,28 @@
+import {useCallback,useEffect,useRef,useState} from 'react';
+import {publicData,WeddingData} from './lib/api';
+import {INITIAL_WEDDING_CONFIG} from './data/initialData';
+import {Navbar} from './components/Navbar';
+import {Footer} from './components/Footer';
+import {LightboxModal} from './components/LightboxModal';
+import {Notice} from './components/Editorial';
+import {Home} from './pages/Home';
+import {OurStory} from './pages/OurStory';
+import {WeddingDetails} from './pages/WeddingDetails';
+import {Gallery} from './pages/Gallery';
+import {RSVP} from './pages/RSVP';
+import {Giving} from './pages/Giving';
+import {Wishes} from './pages/Wishes';
+import {AdminLayout} from './admin/AdminLayout';
+import {updatePageSEO} from './lib/seo';
+const initial:WeddingData={config:INITIAL_WEDDING_CONFIG,gallery:[],stories:[],wishes:[]};
+export default function App(){
+  const [path,setPath]=useState(window.location.pathname);const [data,setData]=useState<WeddingData>(initial);const [loading,setLoading]=useState(true);const [error,setError]=useState('');const [lightbox,setLightbox]=useState<number|null>(null);const main=useRef<HTMLElement>(null);
+  const reload=useCallback(async()=>{try{const next=await publicData();setData(next);setError('');}catch(e){setError((e as Error).message);}finally{setLoading(false);}},[]);
+  useEffect(()=>{void reload();},[reload]);
+  useEffect(()=>{const pop=()=>{setPath(window.location.pathname);setLightbox(null);};window.addEventListener('popstate',pop);return()=>window.removeEventListener('popstate',pop);},[]);
+  useEffect(()=>{updatePageSEO(path);main.current?.focus({preventScroll:true});},[path]);
+  const navigate=(next:string)=>{window.history.pushState({},'',next);setPath(next);setLightbox(null);window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});};
+  if(path.startsWith('/admin'))return <AdminLayout currentPath={path} onNavigate={navigate}/>;
+  const config=data.config;
+  return <><a className="skip-link" href="#main-content">Skip to content</a><Navbar currentPath={path} onNavigate={navigate}/><main id="main-content" ref={main} tabIndex={-1}>{data.mode==='demo'&&<div className="environment-banner">Local demonstration · Test data stays on this computer.</div>}{data.mode==='setup'&&<div className="environment-banner">The wedding team is preparing online invitations. Please use the RSVP contact numbers for assistance.</div>}{error&&<div className="wedding-container pt-6"><Notice error>{error} <button className="underline ml-2" onClick={()=>void reload()}>Try again</button></Notice></div>}{loading?<div className="wedding-container py-16" aria-busy="true" aria-label="Loading wedding details"><div className="skeleton h-5 w-40 mb-10"/><div className="skeleton h-32 max-w-xl mb-6"/><div className="skeleton h-64"/></div>:<>{path==='/'?<Home {...data} onNavigate={navigate} onOpenLightbox={setLightbox}/>:path==='/our-story'?<OurStory stories={data.stories} onNavigate={navigate}/>:path==='/wedding-details'?<WeddingDetails config={config} onNavigate={navigate}/>:path==='/gallery'?<Gallery images={data.gallery} onOpenLightbox={setLightbox}/>:path==='/giving'?<Giving onNavigate={navigate}/>:path==='/rsvp'?<RSVP config={config} onNavigate={navigate}/>:path==='/wishes'?<Wishes wishes={data.wishes} onWishSubmitted={()=>void reload()}/>:<div className="wedding-container py-24"><h1 className="font-serif text-5xl mb-8">This page isn't here.</h1><button className="button" onClick={()=>navigate('/')}>Return home</button></div>}</>}</main><Footer config={config} onNavigate={navigate}/>{lightbox!==null&&<LightboxModal images={data.gallery} currentIndex={lightbox} onClose={()=>setLightbox(null)} onNavigate={setLightbox}/>}</>;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Micheal’sPeace | Peace & Micheal’s Premium Wedding",
+  "description": "Official wedding celebration and private RSVP portal for Peace and Micheal. Saturday, 7 November 2026 at Dunamis Intl Gospel Centre (DIGC), Enugu, Nigeria.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
