@@ -101,3 +101,31 @@ body{background:#fffdf9;color:var(--ink);}
 
 @media(max-width:900px){.nav-rsvp{display:none;}.hero-section{grid-template-columns:1fr;}.hero-portrait{display:block;order:2;width:100%;max-width:none;margin-top:12px;}.hero-artwork{display:block;width:100%;height:auto;}}
 @media(max-width:640px){.hero-portrait{display:none;}}
+
+@media(max-width:640px){
+  .header-inner{height:76px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+  .brand-lockup{min-width:0;gap:9px;}.brand-lockup .wordmark{font-size:25px;white-space:nowrap;}
+  .menu-toggle{display:grid;place-items:center;flex:none;width:44px;height:44px;margin-left:auto;padding:0;border:1px solid var(--gold);border-radius:50%;background:rgba(255,255,255,.55);color:var(--plum);}
+  .menu-toggle:hover{background:var(--gold);color:var(--ink);}
+}
+
+/* Mobile hero: use the save-the-date artwork as the canvas for the hero copy. */
+@media(max-width:640px){
+  .hero-section{display:block;position:relative;min-height:760px;padding:0;margin:0;border-radius:0;background:var(--ink);overflow:hidden;}
+  .hero-section::before{z-index:3;right:9%;top:22px;color:#ffd98a;}
+  .hero-portrait{display:block;position:relative;z-index:1;width:100%;max-width:none;height:760px;margin:0;padding:0;border:0;}
+  .hero-portrait::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,17,17,.68) 0%,rgba(17,17,17,.17) 42%,rgba(17,17,17,.82) 100%);pointer-events:none;}
+  .hero-artwork{content:url('/images/mobile-hero-couple.png');width:100%;height:100%;object-fit:cover;border:0;box-shadow:none;}
+  .hero-portrait figcaption{position:absolute;z-index:2;bottom:18px;left:24px;color:#fff8ec;padding:0;font-size:10px;}
+  .hero-date{z-index:2;right:24px;bottom:18px;color:#ffd98a;}
+  .hero-copy{position:absolute;z-index:4;inset:74px 24px auto;color:#fff8ec;padding:0;}
+  .hero-copy h1{color:#fff8ec;font-size:clamp(64px,19vw,88px);text-shadow:0 3px 20px rgba(0,0,0,.35);}
+  .hero-copy .eyebrow{color:#ffd98a;}
+  .hero-tagline{color:#fff8ec;font-size:20px;text-shadow:0 2px 12px rgba(0,0,0,.35);}
+  .hero-details{color:#fff8ec;text-shadow:0 2px 10px rgba(0,0,0,.4);}
+  .hero-details .muted{color:#ffe4ae;}
+  .hero-copy .countdown{border-top-color:rgba(255,217,138,.7);}
+  .hero-copy .countdown .eyebrow{color:#ffd98a;}
+  .hero-copy .countdown .muted{color:#ffe4ae;}
+  .hero-copy .text-link{color:#fff8ec;border-bottom-color:#ffd98a;}
+}
