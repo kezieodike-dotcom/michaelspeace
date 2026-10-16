@@ -135,3 +135,6 @@ body{background:#fffdf9;color:var(--ink);}
 /* Wedding details invitation hero */
 .details-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,390px);gap:clamp(40px,8vw,120px);align-items:center;padding-bottom:72px;}.details-hero .page-heading{padding-bottom:0;}.details-invitation{margin:0;justify-self:end;max-width:390px;transform:rotate(1.5deg);filter:drop-shadow(0 20px 30px rgba(17,17,17,.16));}.details-invitation img{width:100%;border:8px solid #fff;}.details-invitation figcaption{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--taupe);padding:14px 8px 0;transform:rotate(-1.5deg);}
 @media(max-width:640px){.details-hero{grid-template-columns:1fr;gap:34px;padding-bottom:52px;}.details-invitation{justify-self:center;width:min(100%,360px);}}
+/* Story supporting photos: preserve the complete frame without captions */
+.story-supporting-grid{align-items:start;}.story-supporting-grid figure{padding:8px;}.story-supporting-grid img{height:auto;aspect-ratio:auto;object-fit:contain;}
+@media(max-width:640px){.story-supporting-grid figure{display:block;}.story-supporting-grid img{width:100%;height:auto;}}
