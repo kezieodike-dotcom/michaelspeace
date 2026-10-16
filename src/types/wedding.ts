@@ -64,6 +64,7 @@ export interface LoveStoryEntry {
   dateStr?: string;
   content: string;
   imageUrl?: string;
+  imageUrls?: string[];
   imageId?: string | null;
   displayOrder: number;
   published: boolean;

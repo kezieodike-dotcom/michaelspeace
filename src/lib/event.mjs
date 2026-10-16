@@ -6,7 +6,7 @@ export function countdown(target, now = Date.now()) {
 export function calendarStamp(iso) {return new Date(iso).toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';}
 const escapeIcs = value => String(value).replace(/\\/g, '\\\\').replace(/\r?\n/g, '\\n').replace(/,/g, '\\,').replace(/;/g, '\\;');
 export function calendarFile(config) {
-  return ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//MichealsPeace//Wedding//EN','CALSCALE:GREGORIAN','BEGIN:VEVENT','UID:' + config.id + '@michealspeace','DTSTAMP:' + calendarStamp(new Date().toISOString()),'DTSTART:' + calendarStamp(config.ceremonyIsoTimestamp),'SUMMARY:' + escapeIcs(config.coupleDisplayNames + ' — Wedding'),'LOCATION:' + escapeIcs(config.venueName + ', ' + config.venueAddress),'END:VEVENT','END:VCALENDAR',''].join('\r\n');
+  return ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//MichaelsPeace//Wedding//EN','CALSCALE:GREGORIAN','BEGIN:VEVENT','UID:' + config.id + '@michealspeace','DTSTAMP:' + calendarStamp(new Date().toISOString()),'DTSTART:' + calendarStamp(config.ceremonyIsoTimestamp),'SUMMARY:' + escapeIcs(config.coupleDisplayNames + ' — Wedding'),'LOCATION:' + escapeIcs(config.venueName + ', ' + config.venueAddress),'END:VEVENT','END:VCALENDAR',''].join('\r\n');
 }
 export function formatEvent(iso) {
   const date = new Date(iso);

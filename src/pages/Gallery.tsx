@@ -34,7 +34,7 @@ export const Gallery: React.FC<GalleryProps> = ({ images, onOpenLightbox }) => {
           Wedding Photograph Gallery
         </h1>
         <p className="text-xs sm:text-sm text-[#766452] font-serif italic">
-          Photographs shared by Peace and Micheal and their wedding team.
+          Photographs shared by Peace and Michael and their wedding team.
         </p>
       </div>
 
@@ -110,7 +110,7 @@ export const Gallery: React.FC<GalleryProps> = ({ images, onOpenLightbox }) => {
 
       {/* Note */}
       <div className="text-center text-xs text-[#766452] pt-8">
-        <p>All wedding ceremony and reception photo collections are curated for Peace &amp; Micheal.</p>
+        <p>All wedding ceremony and reception photo collections are curated for Peace &amp; Michael.</p>
       </div>
 
     </div>
