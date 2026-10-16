@@ -124,6 +124,14 @@ body{background:#fffdf9;color:var(--ink);}
   .hero-portrait figcaption{position:absolute;z-index:2;bottom:18px;left:24px;color:#fff8ec;padding:0;font-size:10px;}
   .hero-date{z-index:2;right:24px;bottom:18px;color:#ffd98a;}
   .hero-copy{position:absolute;z-index:4;inset:74px 24px auto;color:#fff8ec;padding:0;}
+  .hero-copy{display:flex;flex-direction:column;}
+  .hero-copy>.eyebrow{order:1;}
+  .hero-copy>h1{order:2;}
+  .hero-copy>.hero-tagline{order:3;}
+  .hero-copy>.hero-cta-row{order:4;}
+  .hero-copy>.hero-details{order:5;margin-top:22px;padding-top:16px;border-top:1px solid rgba(255,217,138,.45);}
+  .hero-cta-row{gap:16px;}
+  .hero-cta-row .text-link{margin-top:2px;}
   .hero-copy h1{color:#fff8ec;font-size:clamp(64px,19vw,88px);text-shadow:0 3px 20px rgba(0,0,0,.35);}
   .hero-copy .eyebrow{color:#ffd98a;}
   .hero-tagline{color:#fff8ec;font-size:20px;text-shadow:0 2px 12px rgba(0,0,0,.35);}
