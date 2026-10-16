@@ -57,6 +57,7 @@ body{background:#fffdf9;color:var(--ink);}
 .story-preview{margin-top:22px;border-radius:48px;background:linear-gradient(125deg,#f9dad2 0%,#fff0d1 100%);}
 .story-preview .section-title{color:var(--plum);}
 .story-preview article{border-top-color:rgba(169,103,29,.42);}
+.story-preview{position:relative;overflow:hidden;}.story-preview-botanical{position:absolute;z-index:0;pointer-events:none;color:var(--gold);line-height:1;opacity:.7;}.story-preview-botanical span,.story-preview-botanical i,.story-preview-botanical b{position:absolute;font-style:normal;font-weight:400;text-shadow:0 2px 0 rgba(255,255,255,.55);}.story-preview-botanical span{font-size:68px;color:#d89b39;}.story-preview-botanical i{font-size:34px;color:#c86e74;}.story-preview-botanical b{font-size:25px;color:#7aa58d;}.story-preview-botanical-left{left:-20px;top:35px;width:130px;height:220px;transform:rotate(-18deg);}.story-preview-botanical-left span{left:8px;top:0;}.story-preview-botanical-left i{left:72px;top:82px;}.story-preview-botanical-left b{left:35px;top:145px;}.story-preview-botanical-right{right:-18px;bottom:12px;width:130px;height:220px;transform:rotate(18deg);}.story-preview-botanical-right span{right:7px;top:0;}.story-preview-botanical-right i{right:72px;top:82px;}.story-preview-botanical-right b{right:35px;top:145px;}.story-preview>.wedding-container{position:relative;z-index:1;}
 .event-preview{margin-top:22px;border:1px solid #f0d39c;border-radius:40px;background:#fff;box-shadow:0 14px 38px rgba(85,54,76,.08);}
 .event-preview .border-l{border-color:var(--gold);}
 .gallery-preview{padding-top:100px;}
@@ -83,6 +84,7 @@ body{background:#fffdf9;color:var(--ink);}
 .story-timeline{position:relative;z-index:1;}
 .story-timeline article{background:rgba(255,255,255,.62);border-radius:0 22px 22px 0;}
 @media(max-width:640px){.story-floral{opacity:.6;transform:scale(.7);}.story-floral-left{left:-32px;top:180px;}.story-floral-right{right:-34px;top:720px;}.story-timeline article{border-radius:0 16px 16px 0;}}
+@media(max-width:640px){.story-preview-botanical{opacity:.42;transform:scale(.72);}.story-preview-botanical-left{left:-36px;top:26px;}.story-preview-botanical-right{right:-42px;bottom:0;}}
 
 /* Giving page: a warm, celebratory space for an optional wedding gift. */
 .giving-page{min-height:70vh;background:linear-gradient(145deg,#fff8ec 0%,#fff 44%,#f9dad2 100%);padding-bottom:90px;}
